@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		B920242E2776C87F001CBB53 /* VoziApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920242D2776C87F001CBB53 /* VoziApp.swift */; };
-		B92024302776C87F001CBB53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920242F2776C87F001CBB53 /* ContentView.swift */; };
 		B92024322776C881001CBB53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92024312776C881001CBB53 /* Assets.xcassets */; };
 		B92024352776C881001CBB53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92024342776C881001CBB53 /* Preview Assets.xcassets */; };
 		B920243F2776C882001CBB53 /* VoziTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920243E2776C882001CBB53 /* VoziTests.swift */; };
 		B92024492776C882001CBB53 /* VoziUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92024482776C882001CBB53 /* VoziUITests.swift */; };
 		B920244B2776C882001CBB53 /* VoziUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920244A2776C882001CBB53 /* VoziUITestsLaunchTests.swift */; };
+		B920245C2776E011001CBB53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920245B2776E011001CBB53 /* HomeView.swift */; };
+		B92024602776E172001CBB53 /* APIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920245F2776E172001CBB53 /* APIBuilder.swift */; };
+		B92024652776E3DC001CBB53 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92024642776E3DC001CBB53 /* APIError.swift */; };
+		B92024682776E529001CBB53 /* VoziService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92024672776E529001CBB53 /* VoziService.swift */; };
+		B920246A2776E66E001CBB53 /* VoziResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92024692776E66E001CBB53 /* VoziResponse.swift */; };
+		B920246D27778AEF001CBB53 /* ResultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920246C27778AEF001CBB53 /* ResultState.swift */; };
+		B920247127779C15001CBB53 /* VoziViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920247027779C15001CBB53 /* VoziViewModel.swift */; };
+		B920247527786395001CBB53 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B920247427786395001CBB53 /* RecordingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,6 @@
 /* Begin PBXFileReference section */
 		B920242A2776C87F001CBB53 /* Vozi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vozi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B920242D2776C87F001CBB53 /* VoziApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziApp.swift; sourceTree = "<group>"; };
-		B920242F2776C87F001CBB53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B92024312776C881001CBB53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B92024342776C881001CBB53 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B920243A2776C882001CBB53 /* VoziTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoziTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,15 @@
 		B92024442776C882001CBB53 /* VoziUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoziUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92024482776C882001CBB53 /* VoziUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziUITests.swift; sourceTree = "<group>"; };
 		B920244A2776C882001CBB53 /* VoziUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B920245B2776E011001CBB53 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B920245F2776E172001CBB53 /* APIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBuilder.swift; sourceTree = "<group>"; };
+		B92024642776E3DC001CBB53 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		B92024672776E529001CBB53 /* VoziService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziService.swift; sourceTree = "<group>"; };
+		B92024692776E66E001CBB53 /* VoziResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziResponse.swift; sourceTree = "<group>"; };
+		B920246C27778AEF001CBB53 /* ResultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultState.swift; sourceTree = "<group>"; };
+		B920247027779C15001CBB53 /* VoziViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoziViewModel.swift; sourceTree = "<group>"; };
+		B920247427786395001CBB53 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		B9BF391D277A2BDB00DD3DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +109,15 @@
 		B920242C2776C87F001CBB53 /* Vozi */ = {
 			isa = PBXGroup;
 			children = (
+				B9BF391D277A2BDB00DD3DF8 /* Info.plist */,
+				B920246F2777979B001CBB53 /* ViewModel */,
+				B920246B27778AC2001CBB53 /* States */,
+				B92024662776E514001CBB53 /* Service */,
+				B92024632776E349001CBB53 /* Endpoint */,
+				B92024612776E2FD001CBB53 /* Error */,
+				B920245D2776E0E3001CBB53 /* Model */,
+				B92024572776DFBB001CBB53 /* Views */,
 				B920242D2776C87F001CBB53 /* VoziApp.swift */,
-				B920242F2776C87F001CBB53 /* ContentView.swift */,
 				B92024312776C881001CBB53 /* Assets.xcassets */,
 				B92024332776C881001CBB53 /* Preview Content */,
 			);
@@ -125,6 +147,63 @@
 				B920244A2776C882001CBB53 /* VoziUITestsLaunchTests.swift */,
 			);
 			path = VoziUITests;
+			sourceTree = "<group>";
+		};
+		B92024572776DFBB001CBB53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B920245B2776E011001CBB53 /* HomeView.swift */,
+				B920247427786395001CBB53 /* RecordingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B920245D2776E0E3001CBB53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B92024692776E66E001CBB53 /* VoziResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B92024612776E2FD001CBB53 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B92024642776E3DC001CBB53 /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		B92024632776E349001CBB53 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				B920245F2776E172001CBB53 /* APIBuilder.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		B92024662776E514001CBB53 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B92024672776E529001CBB53 /* VoziService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B920246B27778AC2001CBB53 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				B920246C27778AEF001CBB53 /* ResultState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		B920246F2777979B001CBB53 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B920247027779C15001CBB53 /* VoziViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +336,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92024302776C87F001CBB53 /* ContentView.swift in Sources */,
+				B920246D27778AEF001CBB53 /* ResultState.swift in Sources */,
+				B920245C2776E011001CBB53 /* HomeView.swift in Sources */,
+				B920247127779C15001CBB53 /* VoziViewModel.swift in Sources */,
+				B92024652776E3DC001CBB53 /* APIError.swift in Sources */,
+				B920246A2776E66E001CBB53 /* VoziResponse.swift in Sources */,
+				B920247527786395001CBB53 /* RecordingView.swift in Sources */,
 				B920242E2776C87F001CBB53 /* VoziApp.swift in Sources */,
+				B92024682776E529001CBB53 /* VoziService.swift in Sources */,
+				B92024602776E172001CBB53 /* APIBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,11 +508,14 @@
 				DEVELOPMENT_TEAM = 94T8TAQ294;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vozi/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow microphone usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,7 +525,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -451,11 +540,14 @@
 				DEVELOPMENT_TEAM = 94T8TAQ294;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Vozi/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow microphone usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +557,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

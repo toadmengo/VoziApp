@@ -12,9 +12,15 @@ import AVFoundation
 
 
 class VoziViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
-    private let service : VoziService
+    private let service : VoziServiceImpl
+    lazy var uploadSession: URLSession = {
+            let configuration = URLSessionConfiguration.default
+            return URLSession(configuration: configuration, delegate: self, delegateQueue: .main)
+        }()
     
-    @Published private(set) var state: ResultState = .resting
+    @Published internal var state: ResultState = .resting
+    
+    
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,7 +29,7 @@ class VoziViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate, AVAudioR
     let audioFilename: URL
     var audioPlayer: AVAudioPlayer!
     
-    init(service: VoziService) {
+    init(service: VoziServiceImpl) {
         self.service = service
         self.audioFilename = VoziViewModel.getDocumentsDirectory().appendingPathComponent("recording.m4a")
     }
@@ -110,6 +116,7 @@ class VoziViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate, AVAudioR
     }
     
     func goBack() {
+        self.service.cancelTask()
         audioPlayer = nil
         audioRecorder = nil
         self.state = .resting
@@ -118,21 +125,8 @@ class VoziViewModel: NSObject, ObservableObject, AVAudioPlayerDelegate, AVAudioR
     
     func sendRecording() {
         self.state = .waitingResponse
-//
-//        let cancellable = service.request(from: .getSong(fileUrl: self.audioFilename))
-//            .sink { res in
-//                switch res {
-//                case .finished:
-//                    self.state = .success
-//                case .failure(let error):
-//                    self.state = .Failed(error: error)
-//                }
-//            } receiveValue: { response in
-//                print(response)
-//            }
-//
-//        self.cancellables.insert(cancellable)
-        
+        self.service.session = uploadSession
+        self.service.request(from: .getSong(fileUrl: audioFilename))
     }
     
     

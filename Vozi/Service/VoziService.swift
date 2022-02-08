@@ -8,59 +8,57 @@
 import Foundation
 import Combine
 
-protocol VoziService {
-    func request(from endpoint: VoziAPI)
-//    func uploadFile(at fileURL: URL,
-//                        to endpoint: VoziAPI) -> AnyPublisher<Double, Error>
-}
+//protocol VoziService {
+//    func request(from endpoint: VoziAPI, completionHandler: (Data?, URLResponse?, Error?) -> Void)
+//}
 
 
-class VoziServiceImpl: NSObject, VoziService {
+class VoziServiceImpl {
+    
+    var session: URLSession!
+    private var task: URLSessionUploadTask? = nil
+    
     // Function for making a basic API request
     func request(from endpoint: VoziAPI) {
-        let task = URLSession.shared.uploadTask(with: endpoint.urlRequest, fromFile: endpoint.fileURL)
-        task.resume()
-//        return URLSession.shared
-//            .dataTaskPublisher(for: endpoint.urlRequest)
-//            .receive(on: DispatchQueue.main)
-//            .mapError {_ in APIError.unknown }
-//            .flatMap{ data, response -> AnyPublisher<VoziResponse, APIError> in
-//
-//                guard let response = response as? HTTPURLResponse else {
-//                    return Fail(error: APIError.unknown).eraseToAnyPublisher()
-//                }
-//
-//                if (200...299).contains(response.statusCode) {
-//                    return Just(data).decode(type: VoziResponse.self, decoder: JSONDecoder())
-//                        .mapError{_ in APIError.decodingError}
-//                        .eraseToAnyPublisher()
-//                } else {
-//                    return Fail(error: APIError.errorCode(response.statusCode)).eraseToAnyPublisher()
-//                }
-//            }
-//            .eraseToAnyPublisher()
+        self.task = self.session.uploadTask(with: endpoint.urlRequest, fromFile: endpoint.fileURL!)
+        if task != nil { task!.resume() }
     }
     
-    
-    // function for uploading a file
-
-//    typealias Publisher = AnyPublisher<VoziResponse, APIError>
-//    func uploadFile(at fileURL: URL,
-//                        to endpoint: VoziAPI) -> Publisher {
-//        let request = endpoint.urlRequest
-//
-//        let task = URLSession.shared.uploadTask(
-//                with: request,
-//                fromFile: fileURL,
-//                completionHandler: { data, response, error in
-//                    // Validate response and send completion
-//
-//                }
-//            )
-//
-//            task.resume()
-//
-//    }
-    
-    
+    func cancelTask() {
+        if task != nil {
+            task?.cancel()
+            task = nil
+        }
+    }
 }
+
+extension VoziViewModel: URLSessionDataDelegate {
+    // Error received
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let err = error {
+            print("Error: \(err.localizedDescription)")
+            self.state = .Failed(error: err)
+        }
+    }
+
+    // Response received
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: (URLSession.ResponseDisposition)-> Void) {
+        completionHandler(URLSession.ResponseDisposition.allow)
+    }
+
+    // Data received
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        // Convert to JSON
+        do {
+            if FileManager.default.fileExists(atPath: self.audioFilename.path) {
+                try FileManager.default.removeItem(atPath: self.audioFilename.path)
+            }
+            try data.write(to: URL(string: "file://" + self.audioFilename.path)!)
+            self.state = .success
+        } catch {
+            self.state = .Failed(error: error)
+        }
+       
+    }
+}
+

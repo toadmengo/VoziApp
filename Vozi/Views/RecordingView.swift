@@ -27,23 +27,26 @@ struct RecordingView: View {
                 }
             
             case .playing:
-                PlayRecordingView(viewModel: viewModel)
-                
+                VStack {
+                    PlayRecordingView(viewModel: viewModel)
+                    Button("Submit Recording", action: viewModel.sendRecording).padding()
+                }
             case .resting:
                 HStack {
                     Button("Start Recording", action: viewModel.recordTapped)
                 }
-                
             case .success:
                 VStack {
-                    Button("Go back", action: viewModel.goBack).padding()
+                    PlayRecordingView(viewModel: viewModel)
                     Text("Upload succesful!").padding()
                 }
             case .waitingResponse:
                 VStack {
+                    Button("Go back", action: viewModel.goBack).padding()
                     Text("Uploading audio....").padding()
                 }
             }
+            
         }
     }
 }
@@ -54,7 +57,6 @@ struct PlayRecordingView : View {
         VStack {
             Button("Go back", action: viewModel.goBack).padding()
             Button("Play Recording", action: viewModel.playRecording).padding()
-            Button("Submit Recording", action: viewModel.sendRecording).padding()
         }
     }
 }
